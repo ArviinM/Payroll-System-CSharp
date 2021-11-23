@@ -199,7 +199,7 @@ namespace Payroll
             lbl_FirstName.Text = this.dgv_Employee.CurrentRow.Cells[1].Value.ToString();
             lbl_LastName.Text = this.dgv_Employee.CurrentRow.Cells[2].Value.ToString();
             txt_SalaryPerDay.Text = this.dgv_Employee.CurrentRow.Cells[3].Value.ToString();
-            txt_SSS.Text = this.dgv_Employee.CurrentRow.Cells[3].Value.ToString();
+            txt_SSS.Text = this.dgv_Employee.CurrentRow.Cells[4].Value.ToString();
 
             if (txt_SSS.Text == "")
             {
