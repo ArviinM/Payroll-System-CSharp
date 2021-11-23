@@ -67,5 +67,27 @@ namespace Payroll
             frm_Payroll payroll = new frm_Payroll();
             payroll.ShowDialog();
         }
+
+        private void btn_Logout_Click(object sender, EventArgs e)
+        {
+            frm_Login login = new frm_Login();
+            login.Show();
+            this.Hide();
+        }
+
+        private void panel2_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                ReleaseCapture();
+                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+            }
+        }
+
+        private void btn_Report_Click(object sender, EventArgs e)
+        {
+            frm_SalaryRecords records = new frm_SalaryRecords();
+            records.ShowDialog();
+        }
     }
 }

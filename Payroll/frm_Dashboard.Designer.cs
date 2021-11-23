@@ -39,6 +39,11 @@
             this.btn_Close = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -47,6 +52,11 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(53)))), ((int)(((byte)(87)))));
+            this.panel1.Controls.Add(this.label6);
+            this.panel1.Controls.Add(this.label5);
+            this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.btn_Logout);
             this.panel1.Controls.Add(this.btn_Report);
             this.panel1.Controls.Add(this.btn_Payroll);
@@ -54,7 +64,7 @@
             this.panel1.Controls.Add(this.btn_Home);
             this.panel1.Location = new System.Drawing.Point(0, -1);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(338, 683);
+            this.panel1.Size = new System.Drawing.Size(236, 683);
             this.panel1.TabIndex = 0;
             // 
             // btn_Logout
@@ -68,11 +78,11 @@
             this.btn_Logout.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(168)))), ((int)(((byte)(218)))), ((int)(((byte)(220)))));
             this.btn_Logout.Location = new System.Drawing.Point(22, 562);
             this.btn_Logout.Name = "btn_Logout";
-            this.btn_Logout.Size = new System.Drawing.Size(291, 96);
+            this.btn_Logout.Size = new System.Drawing.Size(99, 96);
             this.btn_Logout.TabIndex = 38;
-            this.btn_Logout.Text = "LOG-OUT";
             this.btn_Logout.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             this.btn_Logout.UseVisualStyleBackColor = false;
+            this.btn_Logout.Click += new System.EventHandler(this.btn_Logout_Click);
             // 
             // btn_Report
             // 
@@ -85,11 +95,11 @@
             this.btn_Report.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(168)))), ((int)(((byte)(218)))), ((int)(((byte)(220)))));
             this.btn_Report.Location = new System.Drawing.Point(22, 447);
             this.btn_Report.Name = "btn_Report";
-            this.btn_Report.Size = new System.Drawing.Size(291, 96);
+            this.btn_Report.Size = new System.Drawing.Size(99, 96);
             this.btn_Report.TabIndex = 37;
-            this.btn_Report.Text = "REPORT";
             this.btn_Report.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             this.btn_Report.UseVisualStyleBackColor = false;
+            this.btn_Report.Click += new System.EventHandler(this.btn_Report_Click);
             // 
             // btn_Payroll
             // 
@@ -102,9 +112,8 @@
             this.btn_Payroll.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(168)))), ((int)(((byte)(218)))), ((int)(((byte)(220)))));
             this.btn_Payroll.Location = new System.Drawing.Point(22, 334);
             this.btn_Payroll.Name = "btn_Payroll";
-            this.btn_Payroll.Size = new System.Drawing.Size(291, 96);
+            this.btn_Payroll.Size = new System.Drawing.Size(99, 96);
             this.btn_Payroll.TabIndex = 36;
-            this.btn_Payroll.Text = "PAYROLL";
             this.btn_Payroll.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             this.btn_Payroll.UseVisualStyleBackColor = false;
             this.btn_Payroll.Click += new System.EventHandler(this.btn_Payroll_Click);
@@ -120,9 +129,8 @@
             this.btn_Employees.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(168)))), ((int)(((byte)(218)))), ((int)(((byte)(220)))));
             this.btn_Employees.Location = new System.Drawing.Point(22, 222);
             this.btn_Employees.Name = "btn_Employees";
-            this.btn_Employees.Size = new System.Drawing.Size(291, 96);
+            this.btn_Employees.Size = new System.Drawing.Size(99, 96);
             this.btn_Employees.TabIndex = 35;
-            this.btn_Employees.Text = "EMPLOYEES";
             this.btn_Employees.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             this.btn_Employees.UseVisualStyleBackColor = false;
             this.btn_Employees.Click += new System.EventHandler(this.btn_Employees_Click);
@@ -138,9 +146,8 @@
             this.btn_Home.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(168)))), ((int)(((byte)(218)))), ((int)(((byte)(220)))));
             this.btn_Home.Location = new System.Drawing.Point(22, 111);
             this.btn_Home.Name = "btn_Home";
-            this.btn_Home.Size = new System.Drawing.Size(291, 96);
+            this.btn_Home.Size = new System.Drawing.Size(99, 96);
             this.btn_Home.TabIndex = 34;
-            this.btn_Home.Text = "HOME";
             this.btn_Home.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             this.btn_Home.UseVisualStyleBackColor = false;
             // 
@@ -153,6 +160,7 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1271, 83);
             this.panel2.TabIndex = 0;
+            this.panel2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel2_MouseDown);
             // 
             // btn_Close
             // 
@@ -184,11 +192,66 @@
             // 
             this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Location = new System.Drawing.Point(410, 204);
+            this.pictureBox1.Location = new System.Drawing.Point(273, 204);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(805, 357);
+            this.pictureBox1.Size = new System.Drawing.Size(942, 357);
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Poppins", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(168)))), ((int)(((byte)(218)))), ((int)(((byte)(220)))));
+            this.label2.Location = new System.Drawing.Point(127, 181);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(55, 26);
+            this.label2.TabIndex = 39;
+            this.label2.Text = "HOME";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Poppins", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(168)))), ((int)(((byte)(218)))), ((int)(((byte)(220)))));
+            this.label3.Location = new System.Drawing.Point(127, 255);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(94, 52);
+            this.label3.TabIndex = 40;
+            this.label3.Text = "MANAGE\r\nEMPLOYEES";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Poppins", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(168)))), ((int)(((byte)(218)))), ((int)(((byte)(220)))));
+            this.label4.Location = new System.Drawing.Point(127, 386);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(73, 26);
+            this.label4.TabIndex = 41;
+            this.label4.Text = "PAYROLL";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Poppins", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(168)))), ((int)(((byte)(218)))), ((int)(((byte)(220)))));
+            this.label5.Location = new System.Drawing.Point(127, 491);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(67, 26);
+            this.label5.TabIndex = 42;
+            this.label5.Text = "REPORT";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Poppins", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(168)))), ((int)(((byte)(218)))), ((int)(((byte)(220)))));
+            this.label6.Location = new System.Drawing.Point(127, 603);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(80, 26);
+            this.label6.TabIndex = 43;
+            this.label6.Text = "LOG-OUT";
             // 
             // frm_Dashboard
             // 
@@ -205,6 +268,7 @@
             this.Text = "frm_Dashboard";
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.frm_Dashboard_MouseDown);
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -224,5 +288,10 @@
         private Button btn_Home;
         private PictureBox pictureBox1;
         private Button btn_Close;
+        private Label label6;
+        private Label label5;
+        private Label label4;
+        private Label label3;
+        private Label label2;
     }
 }

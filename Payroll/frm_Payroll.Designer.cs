@@ -31,9 +31,12 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_Payroll));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btn_SaveRecord = new System.Windows.Forms.Button();
+            this.btn_Print = new System.Windows.Forms.Button();
             this.lbl_TotalSalary = new System.Windows.Forms.Label();
             this.btn_Exit = new System.Windows.Forms.Button();
             this.btn_Excel = new System.Windows.Forms.Button();
@@ -54,6 +57,8 @@
             this.txt_WorkingDay = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
+            this.txt_SSS = new System.Windows.Forms.TextBox();
+            this.panel14 = new System.Windows.Forms.Panel();
             this.txt_TotalDeductions = new System.Windows.Forms.TextBox();
             this.panel11 = new System.Windows.Forms.Panel();
             this.txt_Absent = new System.Windows.Forms.TextBox();
@@ -65,12 +70,16 @@
             this.btn_Close = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.panel13 = new System.Windows.Forms.Panel();
+            this.lbl_EmpID = new System.Windows.Forms.Label();
             this.dgv_Employee = new System.Windows.Forms.DataGridView();
             this.lbl_LastName = new System.Windows.Forms.Label();
             this.lbl_FirstName = new System.Windows.Forms.Label();
             this.lbl_Date = new System.Windows.Forms.Label();
             this.lbl_Time = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.label6 = new System.Windows.Forms.Label();
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
+            this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             this.panel1.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel8.SuspendLayout();
@@ -106,6 +115,8 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.Transparent;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.btn_SaveRecord);
+            this.panel1.Controls.Add(this.btn_Print);
             this.panel1.Controls.Add(this.lbl_TotalSalary);
             this.panel1.Controls.Add(this.btn_Exit);
             this.panel1.Controls.Add(this.btn_Excel);
@@ -128,13 +139,45 @@
             this.panel1.Size = new System.Drawing.Size(451, 595);
             this.panel1.TabIndex = 37;
             // 
+            // btn_SaveRecord
+            // 
+            this.btn_SaveRecord.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
+            this.btn_SaveRecord.Enabled = false;
+            this.btn_SaveRecord.FlatAppearance.BorderSize = 0;
+            this.btn_SaveRecord.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_SaveRecord.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btn_SaveRecord.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(250)))), ((int)(((byte)(238)))));
+            this.btn_SaveRecord.Location = new System.Drawing.Point(293, 352);
+            this.btn_SaveRecord.Name = "btn_SaveRecord";
+            this.btn_SaveRecord.Size = new System.Drawing.Size(146, 37);
+            this.btn_SaveRecord.TabIndex = 60;
+            this.btn_SaveRecord.Text = "SAVE RECORD";
+            this.btn_SaveRecord.UseVisualStyleBackColor = false;
+            this.btn_SaveRecord.Click += new System.EventHandler(this.btn_SaveRecord_Click);
+            // 
+            // btn_Print
+            // 
+            this.btn_Print.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
+            this.btn_Print.Enabled = false;
+            this.btn_Print.FlatAppearance.BorderSize = 0;
+            this.btn_Print.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Print.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btn_Print.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(250)))), ((int)(((byte)(238)))));
+            this.btn_Print.Location = new System.Drawing.Point(293, 490);
+            this.btn_Print.Name = "btn_Print";
+            this.btn_Print.Size = new System.Drawing.Size(146, 37);
+            this.btn_Print.TabIndex = 59;
+            this.btn_Print.Text = "PRINT";
+            this.btn_Print.UseVisualStyleBackColor = false;
+            this.btn_Print.Click += new System.EventHandler(this.btn_Print_Click);
+            // 
             // lbl_TotalSalary
             // 
             this.lbl_TotalSalary.AutoSize = true;
             this.lbl_TotalSalary.BackColor = System.Drawing.Color.Transparent;
             this.lbl_TotalSalary.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lbl_TotalSalary.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
-            this.lbl_TotalSalary.Location = new System.Drawing.Point(136, 556);
+            this.lbl_TotalSalary.Location = new System.Drawing.Point(145, 564);
             this.lbl_TotalSalary.Name = "lbl_TotalSalary";
             this.lbl_TotalSalary.Size = new System.Drawing.Size(0, 28);
             this.lbl_TotalSalary.TabIndex = 58;
@@ -146,21 +189,23 @@
             this.btn_Exit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Exit.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btn_Exit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(250)))), ((int)(((byte)(238)))));
-            this.btn_Exit.Location = new System.Drawing.Point(293, 484);
+            this.btn_Exit.Location = new System.Drawing.Point(293, 535);
             this.btn_Exit.Name = "btn_Exit";
             this.btn_Exit.Size = new System.Drawing.Size(146, 37);
             this.btn_Exit.TabIndex = 57;
             this.btn_Exit.Text = "EXIT";
             this.btn_Exit.UseVisualStyleBackColor = false;
+            this.btn_Exit.Click += new System.EventHandler(this.btn_Exit_Click);
             // 
             // btn_Excel
             // 
             this.btn_Excel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
+            this.btn_Excel.Enabled = false;
             this.btn_Excel.FlatAppearance.BorderSize = 0;
             this.btn_Excel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Excel.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btn_Excel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(250)))), ((int)(((byte)(238)))));
-            this.btn_Excel.Location = new System.Drawing.Point(293, 436);
+            this.btn_Excel.Location = new System.Drawing.Point(293, 445);
             this.btn_Excel.Name = "btn_Excel";
             this.btn_Excel.Size = new System.Drawing.Size(146, 37);
             this.btn_Excel.TabIndex = 56;
@@ -175,21 +220,23 @@
             this.btn_Clear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Clear.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btn_Clear.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(250)))), ((int)(((byte)(238)))));
-            this.btn_Clear.Location = new System.Drawing.Point(293, 386);
+            this.btn_Clear.Location = new System.Drawing.Point(293, 399);
             this.btn_Clear.Name = "btn_Clear";
             this.btn_Clear.Size = new System.Drawing.Size(146, 37);
             this.btn_Clear.TabIndex = 55;
             this.btn_Clear.Text = "CLEAR";
             this.btn_Clear.UseVisualStyleBackColor = false;
+            this.btn_Clear.Click += new System.EventHandler(this.btn_Clear_Click);
             // 
             // btn_Compute
             // 
             this.btn_Compute.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
+            this.btn_Compute.Enabled = false;
             this.btn_Compute.FlatAppearance.BorderSize = 0;
             this.btn_Compute.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Compute.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btn_Compute.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(250)))), ((int)(((byte)(238)))));
-            this.btn_Compute.Location = new System.Drawing.Point(293, 338);
+            this.btn_Compute.Location = new System.Drawing.Point(293, 304);
             this.btn_Compute.Name = "btn_Compute";
             this.btn_Compute.Size = new System.Drawing.Size(146, 37);
             this.btn_Compute.TabIndex = 54;
@@ -203,7 +250,7 @@
             this.lbl_1.BackColor = System.Drawing.Color.Transparent;
             this.lbl_1.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lbl_1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
-            this.lbl_1.Location = new System.Drawing.Point(33, 556);
+            this.lbl_1.Location = new System.Drawing.Point(33, 564);
             this.lbl_1.Name = "lbl_1";
             this.lbl_1.Size = new System.Drawing.Size(109, 28);
             this.lbl_1.TabIndex = 53;
@@ -235,6 +282,7 @@
             // 
             // panel7
             // 
+            this.panel7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel7.Controls.Add(this.txt_TotalOT);
             this.panel7.Controls.Add(this.panel6);
             this.panel7.Controls.Add(this.panel5);
@@ -351,6 +399,9 @@
             // 
             // panel8
             // 
+            this.panel8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel8.Controls.Add(this.txt_SSS);
+            this.panel8.Controls.Add(this.panel14);
             this.panel8.Controls.Add(this.txt_TotalDeductions);
             this.panel8.Controls.Add(this.panel11);
             this.panel8.Controls.Add(this.txt_Absent);
@@ -361,8 +412,29 @@
             this.panel8.Controls.Add(this.panel10);
             this.panel8.Location = new System.Drawing.Point(25, 321);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(243, 223);
+            this.panel8.Size = new System.Drawing.Size(243, 240);
             this.panel8.TabIndex = 52;
+            // 
+            // txt_SSS
+            // 
+            this.txt_SSS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(250)))), ((int)(((byte)(238)))));
+            this.txt_SSS.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_SSS.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txt_SSS.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
+            this.txt_SSS.Location = new System.Drawing.Point(24, 143);
+            this.txt_SSS.Name = "txt_SSS";
+            this.txt_SSS.PlaceholderText = "SSS Deduction:";
+            this.txt_SSS.Size = new System.Drawing.Size(191, 20);
+            this.txt_SSS.TabIndex = 59;
+            this.txt_SSS.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // panel14
+            // 
+            this.panel14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
+            this.panel14.Location = new System.Drawing.Point(24, 168);
+            this.panel14.Name = "panel14";
+            this.panel14.Size = new System.Drawing.Size(191, 3);
+            this.panel14.TabIndex = 58;
             // 
             // txt_TotalDeductions
             // 
@@ -370,7 +442,7 @@
             this.txt_TotalDeductions.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_TotalDeductions.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txt_TotalDeductions.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
-            this.txt_TotalDeductions.Location = new System.Drawing.Point(24, 170);
+            this.txt_TotalDeductions.Location = new System.Drawing.Point(24, 200);
             this.txt_TotalDeductions.Name = "txt_TotalDeductions";
             this.txt_TotalDeductions.PlaceholderText = "Total Deductions:";
             this.txt_TotalDeductions.Size = new System.Drawing.Size(191, 20);
@@ -380,7 +452,7 @@
             // panel11
             // 
             this.panel11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
-            this.panel11.Location = new System.Drawing.Point(24, 147);
+            this.panel11.Location = new System.Drawing.Point(24, 134);
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(191, 3);
             this.panel11.TabIndex = 54;
@@ -391,7 +463,7 @@
             this.txt_Absent.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_Absent.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txt_Absent.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
-            this.txt_Absent.Location = new System.Drawing.Point(24, 122);
+            this.txt_Absent.Location = new System.Drawing.Point(24, 109);
             this.txt_Absent.Name = "txt_Absent";
             this.txt_Absent.PlaceholderText = "Absent:";
             this.txt_Absent.Size = new System.Drawing.Size(191, 20);
@@ -401,7 +473,7 @@
             // panel12
             // 
             this.panel12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
-            this.panel12.Location = new System.Drawing.Point(24, 195);
+            this.panel12.Location = new System.Drawing.Point(24, 225);
             this.panel12.Name = "panel12";
             this.panel12.Size = new System.Drawing.Size(191, 3);
             this.panel12.TabIndex = 56;
@@ -412,7 +484,7 @@
             this.txt_TotalLate.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_TotalLate.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txt_TotalLate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
-            this.txt_TotalLate.Location = new System.Drawing.Point(24, 72);
+            this.txt_TotalLate.Location = new System.Drawing.Point(24, 58);
             this.txt_TotalLate.Name = "txt_TotalLate";
             this.txt_TotalLate.PlaceholderText = "Total Amount of Late:";
             this.txt_TotalLate.Size = new System.Drawing.Size(191, 20);
@@ -443,7 +515,7 @@
             // panel10
             // 
             this.panel10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
-            this.panel10.Location = new System.Drawing.Point(24, 97);
+            this.panel10.Location = new System.Drawing.Point(24, 83);
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(191, 3);
             this.panel10.TabIndex = 52;
@@ -478,6 +550,7 @@
             // panel13
             // 
             this.panel13.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel13.Controls.Add(this.lbl_EmpID);
             this.panel13.Controls.Add(this.dgv_Employee);
             this.panel13.Controls.Add(this.lbl_LastName);
             this.panel13.Controls.Add(this.lbl_FirstName);
@@ -488,16 +561,27 @@
             this.panel13.Size = new System.Drawing.Size(423, 596);
             this.panel13.TabIndex = 59;
             // 
+            // lbl_EmpID
+            // 
+            this.lbl_EmpID.AutoSize = true;
+            this.lbl_EmpID.Location = new System.Drawing.Point(315, 42);
+            this.lbl_EmpID.Name = "lbl_EmpID";
+            this.lbl_EmpID.Size = new System.Drawing.Size(18, 15);
+            this.lbl_EmpID.TabIndex = 65;
+            this.lbl_EmpID.Text = "ID";
+            this.lbl_EmpID.Visible = false;
+            // 
             // dgv_Employee
             // 
             this.dgv_Employee.AllowUserToAddRows = false;
             this.dgv_Employee.AllowUserToDeleteRows = false;
+            this.dgv_Employee.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(250)))), ((int)(((byte)(238)))));
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(218)))), ((int)(((byte)(220)))));
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Poppins", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(123)))), ((int)(((byte)(157)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(250)))), ((int)(((byte)(238)))));
             this.dgv_Employee.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgv_Employee.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -569,12 +653,39 @@
             this.timer1.Enabled = true;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Transparent;
+            this.label6.Font = new System.Drawing.Font("Poppins SemiBold", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(57)))), ((int)(((byte)(70)))));
+            this.label6.Location = new System.Drawing.Point(31, 658);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(286, 21);
+            this.label6.TabIndex = 65;
+            this.label6.Text = "Note: Double click the cell to edit their payroll!";
+            // 
+            // printDocument1
+            // 
+            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
+            // 
+            // printPreviewDialog1
+            // 
+            this.printPreviewDialog1.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.ClientSize = new System.Drawing.Size(400, 300);
+            this.printPreviewDialog1.Enabled = true;
+            this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
+            this.printPreviewDialog1.Name = "printPreviewDialog1";
+            this.printPreviewDialog1.Visible = false;
+            // 
             // frm_Payroll
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(250)))), ((int)(((byte)(238)))));
             this.ClientSize = new System.Drawing.Size(920, 677);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.panel13);
             this.Controls.Add(this.btn_Close);
@@ -642,5 +753,13 @@
         private Label lbl_Time;
         private DataGridView dgv_Employee;
         private System.Windows.Forms.Timer timer1;
+        private Label label6;
+        public TextBox txt_SSS;
+        private Panel panel14;
+        private Button btn_Print;
+        private System.Drawing.Printing.PrintDocument printDocument1;
+        private PrintPreviewDialog printPreviewDialog1;
+        private Button btn_SaveRecord;
+        private Label lbl_EmpID;
     }
 }

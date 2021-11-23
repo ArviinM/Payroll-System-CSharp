@@ -132,13 +132,6 @@
             this.cmb_BasicRate.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cmb_BasicRate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
             this.cmb_BasicRate.FormattingEnabled = true;
-            this.cmb_BasicRate.Items.AddRange(new object[] {
-            "500",
-            "600",
-            "700",
-            "800",
-            "900",
-            "1000"});
             this.cmb_BasicRate.Location = new System.Drawing.Point(31, 234);
             this.cmb_BasicRate.Name = "cmb_BasicRate";
             this.cmb_BasicRate.Size = new System.Drawing.Size(237, 31);
@@ -169,17 +162,11 @@
             this.cmb_Position.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cmb_Position.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
             this.cmb_Position.FormattingEnabled = true;
-            this.cmb_Position.Items.AddRange(new object[] {
-            "Janitor",
-            "Driver",
-            "Guard",
-            "Help Desk",
-            "Programmer",
-            "Secretary"});
             this.cmb_Position.Location = new System.Drawing.Point(31, 161);
             this.cmb_Position.Name = "cmb_Position";
             this.cmb_Position.Size = new System.Drawing.Size(237, 31);
             this.cmb_Position.TabIndex = 13;
+            this.cmb_Position.SelectedIndexChanged += new System.EventHandler(this.cmb_Position_SelectedIndexChanged);
             // 
             // panel16
             // 
@@ -197,7 +184,7 @@
             this.txt_SSS.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
             this.txt_SSS.Location = new System.Drawing.Point(29, 83);
             this.txt_SSS.Name = "txt_SSS";
-            this.txt_SSS.PlaceholderText = "SSS *";
+            this.txt_SSS.PlaceholderText = "SSS  *";
             this.txt_SSS.Size = new System.Drawing.Size(241, 20);
             this.txt_SSS.TabIndex = 12;
             this.txt_SSS.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;

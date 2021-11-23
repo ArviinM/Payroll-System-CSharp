@@ -46,6 +46,28 @@ namespace Payroll
 
             date_Birth.Format = DateTimePickerFormat.Custom;
             date_Birth.CustomFormat = "MMMM dd, yyyy";
+
+            loadCmbData();
+        }
+
+        private void loadCmbData()
+        {
+            string query = "SELECT * FROM tbl_EmployeePositions";
+            using (SqlConnection con = new SqlConnection(connectionString))
+            using (SqlCommand cmd = new SqlCommand(query, con))
+            {
+                con.Open();
+                using (SqlDataReader read = cmd.ExecuteReader())
+                {
+                    while (read.Read())
+                    {
+                        cmb_Position.Items.Add(read[0]);
+                    }
+                }
+                con.Close();
+            }
+            cmb_Position.SelectedIndex = 6;
+            cmb_BasicRate.SelectedIndex = 1;
         }
 
         private void btn_Save_Click(object sender, EventArgs e)
@@ -55,7 +77,7 @@ namespace Payroll
                 "Emp_SSS = @Emp_SSS, Emp_Position = @Emp_Position, Emp_Salary = @Emp_Salary WHERE Emp_ID = @Emp_ID";
 
             if (txt_ID.Text == "" || txt_FirstName.Text == "" || txt_LastName.Text == "" || txt_Street.Text == "" || txt_Barangay.Text == "" || txt_City.Text == "" ||
-                cmb_Gender.Text == "" || cmb_Status.Text == "" || date_Join.Text == "" || date_Birth.Text == "" || txt_PhoneNo.Text == "" || txt_SSS.Text == "" || cmb_Position.Text == "" ||
+                cmb_Gender.Text == "" || cmb_Status.Text == "" || date_Join.Text == "" || date_Birth.Text == "" || txt_PhoneNo.Text == "" || cmb_Position.Text == "" ||
                 cmb_BasicRate.Text == "")
             {
                 MessageBox.Show("Please input all fields!", "Warning");
@@ -100,5 +122,44 @@ namespace Payroll
             this.Hide();
         }
 
+        private void cmb_Position_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cmb_BasicRate.Items.Clear();
+            if (cmb_Position.Text == "Manager")
+            {
+                cmb_BasicRate.Items.Add("1200");
+                cmb_BasicRate.Items.Add("1000");
+            }
+            else if (cmb_Position.Text == "Secretary")
+            {
+                cmb_BasicRate.Items.Add("950");
+                cmb_BasicRate.Items.Add("900");
+            }
+            else if (cmb_Position.Text == "Programmer")
+            {
+                cmb_BasicRate.Items.Add("900");
+                cmb_BasicRate.Items.Add("850");
+            }
+            else if (cmb_Position.Text == "Consultant")
+            {
+                cmb_BasicRate.Items.Add("800");
+                cmb_BasicRate.Items.Add("750");
+            }
+            else if (cmb_Position.Text == "Guard")
+            {
+                cmb_BasicRate.Items.Add("700");
+                cmb_BasicRate.Items.Add("600");
+            }
+            else if (cmb_Position.Text == "Driver")
+            {
+                cmb_BasicRate.Items.Add("750");
+                cmb_BasicRate.Items.Add("650");
+            }
+            else if (cmb_Position.Text == "Janitor")
+            {
+                cmb_BasicRate.Items.Add("700");
+                cmb_BasicRate.Items.Add("600");
+            }
+        }
     }
 }
