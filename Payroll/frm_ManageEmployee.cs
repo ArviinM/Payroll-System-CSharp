@@ -56,30 +56,40 @@ namespace Payroll
                 "VALUES (@Emp_ID, @Emp_FirstName, @Emp_LastName, @Emp_Address, @Emp_Gender, @Emp_Status, @Emp_JoinDate, @Emp_Dob, " +
                 "@Emp_PhoneNo, @Emp_SSS, @Emp_Position, @Emp_Salary);";
 
-            using (SqlConnection con = new SqlConnection(connectionString))
-            using (SqlCommand cmd = new SqlCommand(query, con))
+            if(txt_ID.Text == "" || txt_FirstName.Text == "" || txt_LastName.Text == "" || txt_Street.Text == "" || txt_Barangay.Text == "" || txt_City.Text == "" ||
+                cmb_Gender.Text == "" || cmb_Status.Text == "" || date_Join.Text == "" || date_Birth.Text == "" || txt_PhoneNo.Text == "" || txt_SSS.Text == "" || cmb_Position.Text == "" ||
+                cmb_BasicRate.Text == "")
             {
-                //cmd.Parameters.Add("@Birthdate", SqlDbType.Date).Value = dateTimePicker.Value.Date;
-                cmd.Parameters.Add("@Emp_ID", SqlDbType.BigInt).Value = txt_ID.Text;
-                cmd.Parameters.Add("@Emp_FirstName", SqlDbType.NVarChar).Value = txt_FirstName.Text;
-                cmd.Parameters.Add("@Emp_LastName", SqlDbType.NVarChar).Value = txt_LastName.Text;
-                cmd.Parameters.Add("@Emp_Address", SqlDbType.NVarChar).Value = txt_Street.Text + ", " + txt_Barangay.Text + ", " + txt_City.Text;
-                cmd.Parameters.Add("@Emp_Gender", SqlDbType.NVarChar).Value = this.cmb_Gender.GetItemText(this.cmb_Gender.SelectedItem);
-                cmd.Parameters.Add("@Emp_Status", SqlDbType.NVarChar).Value = this.cmb_Status.GetItemText(this.cmb_Status.SelectedItem);
-                cmd.Parameters.Add("@Emp_JoinDate", SqlDbType.Date).Value = date_Join.Value.Date;
-                cmd.Parameters.Add("@Emp_Dob", SqlDbType.Date).Value = date_Birth.Value.Date;
-                cmd.Parameters.Add("@Emp_PhoneNo", SqlDbType.NVarChar).Value = txt_PhoneNo.Text;
-                cmd.Parameters.Add("@Emp_SSS", SqlDbType.NVarChar).Value = txt_SSS.Text;
-                cmd.Parameters.Add("@Emp_Position", SqlDbType.NVarChar).Value = this.cmb_Position.GetItemText(this.cmb_Position.SelectedItem);
-                cmd.Parameters.Add("@Emp_Salary", SqlDbType.NVarChar).Value = this.cmb_BasicRate.GetItemText(this.cmb_BasicRate.SelectedItem);
+                MessageBox.Show("Please input all fields!", "Warning");
+            } else
+            {
+                using (SqlConnection con = new SqlConnection(connectionString))
+                using (SqlCommand cmd = new SqlCommand(query, con))
+                {
+                    //cmd.Parameters.Add("@Birthdate", SqlDbType.Date).Value = dateTimePicker.Value.Date;
+                    cmd.Parameters.Add("@Emp_ID", SqlDbType.BigInt).Value = txt_ID.Text;
+                    cmd.Parameters.Add("@Emp_FirstName", SqlDbType.NVarChar).Value = txt_FirstName.Text;
+                    cmd.Parameters.Add("@Emp_LastName", SqlDbType.NVarChar).Value = txt_LastName.Text;
+                    cmd.Parameters.Add("@Emp_Address", SqlDbType.NVarChar).Value = txt_Street.Text + ", " + txt_Barangay.Text + ", " + txt_City.Text;
+                    cmd.Parameters.Add("@Emp_Gender", SqlDbType.NVarChar).Value = this.cmb_Gender.GetItemText(this.cmb_Gender.SelectedItem);
+                    cmd.Parameters.Add("@Emp_Status", SqlDbType.NVarChar).Value = this.cmb_Status.GetItemText(this.cmb_Status.SelectedItem);
+                    cmd.Parameters.Add("@Emp_JoinDate", SqlDbType.Date).Value = date_Join.Value.Date;
+                    cmd.Parameters.Add("@Emp_Dob", SqlDbType.Date).Value = date_Birth.Value.Date;
+                    cmd.Parameters.Add("@Emp_PhoneNo", SqlDbType.NVarChar).Value = txt_PhoneNo.Text;
+                    cmd.Parameters.Add("@Emp_SSS", SqlDbType.NVarChar).Value = txt_SSS.Text;
+                    cmd.Parameters.Add("@Emp_Position", SqlDbType.NVarChar).Value = this.cmb_Position.GetItemText(this.cmb_Position.SelectedItem);
+                    cmd.Parameters.Add("@Emp_Salary", SqlDbType.NVarChar).Value = this.cmb_BasicRate.GetItemText(this.cmb_BasicRate.SelectedItem);
 
-                con.Open();
-                cmd.ExecuteNonQuery();
-                MessageBox.Show("Saved!", "Succesful!");
-                con.Close();
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Saved!", "Succesful!");
+                    con.Close();
+                }
+
+                refreshData();
             }
 
-            refreshData();
+
         }
 
         private void btn_Close_Click(object sender, EventArgs e)
