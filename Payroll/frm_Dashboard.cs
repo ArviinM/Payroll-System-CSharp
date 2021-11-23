@@ -61,5 +61,11 @@ namespace Payroll
         {
             Application.Exit();
         }
+
+        private void btn_Payroll_Click(object sender, EventArgs e)
+        {
+            frm_Payroll payroll = new frm_Payroll();
+            payroll.ShowDialog();
+        }
     }
 }

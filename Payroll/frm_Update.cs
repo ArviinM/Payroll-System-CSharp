@@ -99,5 +99,6 @@ namespace Payroll
         {
             this.Hide();
         }
+
     }
 }

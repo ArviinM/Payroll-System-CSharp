@@ -65,7 +65,7 @@
             this.btn_Logout.FlatAppearance.BorderSize = 0;
             this.btn_Logout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Logout.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btn_Logout.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(250)))), ((int)(((byte)(238)))));
+            this.btn_Logout.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(168)))), ((int)(((byte)(218)))), ((int)(((byte)(220)))));
             this.btn_Logout.Location = new System.Drawing.Point(22, 562);
             this.btn_Logout.Name = "btn_Logout";
             this.btn_Logout.Size = new System.Drawing.Size(291, 96);
@@ -82,7 +82,7 @@
             this.btn_Report.FlatAppearance.BorderSize = 0;
             this.btn_Report.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Report.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btn_Report.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(250)))), ((int)(((byte)(238)))));
+            this.btn_Report.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(168)))), ((int)(((byte)(218)))), ((int)(((byte)(220)))));
             this.btn_Report.Location = new System.Drawing.Point(22, 447);
             this.btn_Report.Name = "btn_Report";
             this.btn_Report.Size = new System.Drawing.Size(291, 96);
@@ -99,7 +99,7 @@
             this.btn_Payroll.FlatAppearance.BorderSize = 0;
             this.btn_Payroll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Payroll.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btn_Payroll.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(250)))), ((int)(((byte)(238)))));
+            this.btn_Payroll.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(168)))), ((int)(((byte)(218)))), ((int)(((byte)(220)))));
             this.btn_Payroll.Location = new System.Drawing.Point(22, 334);
             this.btn_Payroll.Name = "btn_Payroll";
             this.btn_Payroll.Size = new System.Drawing.Size(291, 96);
@@ -107,6 +107,7 @@
             this.btn_Payroll.Text = "PAYROLL";
             this.btn_Payroll.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             this.btn_Payroll.UseVisualStyleBackColor = false;
+            this.btn_Payroll.Click += new System.EventHandler(this.btn_Payroll_Click);
             // 
             // btn_Employees
             // 
@@ -116,7 +117,7 @@
             this.btn_Employees.FlatAppearance.BorderSize = 0;
             this.btn_Employees.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Employees.Font = new System.Drawing.Font("Poppins", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btn_Employees.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(250)))), ((int)(((byte)(238)))));
+            this.btn_Employees.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(168)))), ((int)(((byte)(218)))), ((int)(((byte)(220)))));
             this.btn_Employees.Location = new System.Drawing.Point(22, 222);
             this.btn_Employees.Name = "btn_Employees";
             this.btn_Employees.Size = new System.Drawing.Size(291, 96);
@@ -134,7 +135,7 @@
             this.btn_Home.FlatAppearance.BorderSize = 0;
             this.btn_Home.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Home.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btn_Home.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(250)))), ((int)(((byte)(238)))));
+            this.btn_Home.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(168)))), ((int)(((byte)(218)))), ((int)(((byte)(220)))));
             this.btn_Home.Location = new System.Drawing.Point(22, 111);
             this.btn_Home.Name = "btn_Home";
             this.btn_Home.Size = new System.Drawing.Size(291, 96);
@@ -160,7 +161,7 @@
             this.btn_Close.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Close.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_Close.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(57)))), ((int)(((byte)(70)))));
-            this.btn_Close.Location = new System.Drawing.Point(1226, 3);
+            this.btn_Close.Location = new System.Drawing.Point(1229, 0);
             this.btn_Close.Name = "btn_Close";
             this.btn_Close.Size = new System.Drawing.Size(36, 34);
             this.btn_Close.TabIndex = 35;
@@ -200,6 +201,7 @@
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frm_Dashboard";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.WindowsDefaultBounds;
             this.Text = "frm_Dashboard";
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.frm_Dashboard_MouseDown);
             this.panel1.ResumeLayout(false);
