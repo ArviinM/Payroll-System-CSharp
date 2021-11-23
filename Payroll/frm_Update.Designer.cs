@@ -1,6 +1,6 @@
 ﻿namespace Payroll
 {
-    partial class frm_ManageEmployee
+    partial class frm_Update
     {
         /// <summary>
         /// Required designer variable.
@@ -11,7 +11,6 @@
         /// Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        /// 
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -29,16 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.tbCtrl = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.dgv_Employee = new System.Windows.Forms.DataGridView();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.panel15 = new System.Windows.Forms.Panel();
-            this.btn_Save = new System.Windows.Forms.Button();
+            this.btn_Update = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.cmb_BasicRate = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -85,90 +76,17 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.txt_FirstName = new System.Windows.Forms.TextBox();
             this.txt_ID = new System.Windows.Forms.TextBox();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.btn_Delete = new System.Windows.Forms.Button();
-            this.dgv_EditDeleteEmp = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.btn_Close = new System.Windows.Forms.Button();
-            this.btn_Edit = new System.Windows.Forms.Button();
-            this.btn_Refresh = new System.Windows.Forms.Button();
-            this.tbCtrl.SuspendLayout();
-            this.tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_Employee)).BeginInit();
-            this.tabPage2.SuspendLayout();
             this.panel15.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel8.SuspendLayout();
-            this.tabPage3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_EditDeleteEmp)).BeginInit();
             this.SuspendLayout();
-            // 
-            // tbCtrl
-            // 
-            this.tbCtrl.Controls.Add(this.tabPage1);
-            this.tbCtrl.Controls.Add(this.tabPage2);
-            this.tbCtrl.Controls.Add(this.tabPage3);
-            this.tbCtrl.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbCtrl.Location = new System.Drawing.Point(20, 52);
-            this.tbCtrl.Name = "tbCtrl";
-            this.tbCtrl.SelectedIndex = 0;
-            this.tbCtrl.Size = new System.Drawing.Size(827, 418);
-            this.tbCtrl.TabIndex = 0;
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(250)))), ((int)(((byte)(238)))));
-            this.tabPage1.Controls.Add(this.dgv_Employee);
-            this.tabPage1.Location = new System.Drawing.Point(4, 37);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(819, 377);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Employee List";
-            // 
-            // dgv_Employee
-            // 
-            this.dgv_Employee.AllowUserToAddRows = false;
-            this.dgv_Employee.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Poppins", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            this.dgv_Employee.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
-            this.dgv_Employee.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Poppins", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_Employee.DefaultCellStyle = dataGridViewCellStyle12;
-            this.dgv_Employee.Location = new System.Drawing.Point(15, 12);
-            this.dgv_Employee.Name = "dgv_Employee";
-            this.dgv_Employee.ReadOnly = true;
-            this.dgv_Employee.RowTemplate.Height = 18;
-            this.dgv_Employee.Size = new System.Drawing.Size(791, 352);
-            this.dgv_Employee.TabIndex = 0;
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(250)))), ((int)(((byte)(238)))));
-            this.tabPage2.Controls.Add(this.panel15);
-            this.tabPage2.Controls.Add(this.panel7);
-            this.tabPage2.Location = new System.Drawing.Point(4, 37);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(819, 377);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Add Employee";
             // 
             // panel15
             // 
             this.panel15.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel15.Controls.Add(this.btn_Save);
+            this.panel15.Controls.Add(this.btn_Update);
             this.panel15.Controls.Add(this.label8);
             this.panel15.Controls.Add(this.cmb_BasicRate);
             this.panel15.Controls.Add(this.label7);
@@ -177,25 +95,25 @@
             this.panel15.Controls.Add(this.panel16);
             this.panel15.Controls.Add(this.txt_SSS);
             this.panel15.Controls.Add(this.txt_PhoneNo);
-            this.panel15.Location = new System.Drawing.Point(507, 20);
+            this.panel15.Location = new System.Drawing.Point(508, 69);
             this.panel15.Name = "panel15";
             this.panel15.Size = new System.Drawing.Size(297, 337);
-            this.panel15.TabIndex = 11;
+            this.panel15.TabIndex = 13;
             // 
-            // btn_Save
+            // btn_Update
             // 
-            this.btn_Save.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
-            this.btn_Save.FlatAppearance.BorderSize = 0;
-            this.btn_Save.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Save.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btn_Save.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(250)))), ((int)(((byte)(238)))));
-            this.btn_Save.Location = new System.Drawing.Point(77, 279);
-            this.btn_Save.Name = "btn_Save";
-            this.btn_Save.Size = new System.Drawing.Size(146, 37);
-            this.btn_Save.TabIndex = 33;
-            this.btn_Save.Text = "SAVE";
-            this.btn_Save.UseVisualStyleBackColor = false;
-            this.btn_Save.Click += new System.EventHandler(this.btn_Save_Click);
+            this.btn_Update.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
+            this.btn_Update.FlatAppearance.BorderSize = 0;
+            this.btn_Update.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Update.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btn_Update.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(250)))), ((int)(((byte)(238)))));
+            this.btn_Update.Location = new System.Drawing.Point(77, 279);
+            this.btn_Update.Name = "btn_Update";
+            this.btn_Update.Size = new System.Drawing.Size(146, 37);
+            this.btn_Update.TabIndex = 33;
+            this.btn_Update.Text = "UPDATE";
+            this.btn_Update.UseVisualStyleBackColor = false;
+            this.btn_Update.Click += new System.EventHandler(this.btn_Save_Click);
             // 
             // label8
             // 
@@ -322,10 +240,10 @@
             this.panel7.Controls.Add(this.panel1);
             this.panel7.Controls.Add(this.txt_FirstName);
             this.panel7.Controls.Add(this.txt_ID);
-            this.panel7.Location = new System.Drawing.Point(14, 20);
+            this.panel7.Location = new System.Drawing.Point(15, 69);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(481, 337);
-            this.panel7.TabIndex = 10;
+            this.panel7.TabIndex = 12;
             // 
             // label6
             // 
@@ -734,65 +652,10 @@
             this.txt_ID.Location = new System.Drawing.Point(39, 28);
             this.txt_ID.Name = "txt_ID";
             this.txt_ID.PlaceholderText = "ID Number *";
+            this.txt_ID.ReadOnly = true;
             this.txt_ID.Size = new System.Drawing.Size(101, 20);
             this.txt_ID.TabIndex = 1;
             this.txt_ID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // tabPage3
-            // 
-            this.tabPage3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(250)))), ((int)(((byte)(238)))));
-            this.tabPage3.Controls.Add(this.btn_Refresh);
-            this.tabPage3.Controls.Add(this.btn_Edit);
-            this.tabPage3.Controls.Add(this.btn_Delete);
-            this.tabPage3.Controls.Add(this.dgv_EditDeleteEmp);
-            this.tabPage3.Location = new System.Drawing.Point(4, 37);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(819, 377);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Edit & Delete Employee";
-            // 
-            // btn_Delete
-            // 
-            this.btn_Delete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
-            this.btn_Delete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Delete.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btn_Delete.ForeColor = System.Drawing.Color.Transparent;
-            this.btn_Delete.Location = new System.Drawing.Point(616, 165);
-            this.btn_Delete.Name = "btn_Delete";
-            this.btn_Delete.Size = new System.Drawing.Size(146, 37);
-            this.btn_Delete.TabIndex = 1;
-            this.btn_Delete.Text = "DELETE";
-            this.btn_Delete.UseVisualStyleBackColor = false;
-            this.btn_Delete.Click += new System.EventHandler(this.btn_Delete_Click);
-            // 
-            // dgv_EditDeleteEmp
-            // 
-            this.dgv_EditDeleteEmp.AllowUserToAddRows = false;
-            this.dgv_EditDeleteEmp.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Poppins", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_EditDeleteEmp.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
-            this.dgv_EditDeleteEmp.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Poppins", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_EditDeleteEmp.DefaultCellStyle = dataGridViewCellStyle10;
-            this.dgv_EditDeleteEmp.Location = new System.Drawing.Point(17, 17);
-            this.dgv_EditDeleteEmp.Name = "dgv_EditDeleteEmp";
-            this.dgv_EditDeleteEmp.ReadOnly = true;
-            this.dgv_EditDeleteEmp.RowTemplate.Height = 25;
-            this.dgv_EditDeleteEmp.Size = new System.Drawing.Size(540, 342);
-            this.dgv_EditDeleteEmp.TabIndex = 0;
             // 
             // label1
             // 
@@ -800,11 +663,11 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Poppins Medium", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
-            this.label1.Location = new System.Drawing.Point(315, 21);
+            this.label1.Location = new System.Drawing.Point(331, 18);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(266, 35);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "EMPLOYEE MANAGEMENT";
+            this.label1.Size = new System.Drawing.Size(166, 35);
+            this.label1.TabIndex = 34;
+            this.label1.Text = "EDIT EMPLOYEE";
             // 
             // btn_Close
             // 
@@ -813,69 +676,35 @@
             this.btn_Close.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Close.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_Close.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(57)))), ((int)(((byte)(70)))));
-            this.btn_Close.Location = new System.Drawing.Point(836, -1);
+            this.btn_Close.Location = new System.Drawing.Point(787, -1);
             this.btn_Close.Name = "btn_Close";
             this.btn_Close.Size = new System.Drawing.Size(36, 34);
-            this.btn_Close.TabIndex = 6;
+            this.btn_Close.TabIndex = 34;
             this.btn_Close.Text = "X";
             this.btn_Close.UseVisualStyleBackColor = false;
             this.btn_Close.Click += new System.EventHandler(this.btn_Close_Click);
             // 
-            // btn_Edit
-            // 
-            this.btn_Edit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
-            this.btn_Edit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Edit.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btn_Edit.ForeColor = System.Drawing.Color.Transparent;
-            this.btn_Edit.Location = new System.Drawing.Point(616, 122);
-            this.btn_Edit.Name = "btn_Edit";
-            this.btn_Edit.Size = new System.Drawing.Size(146, 37);
-            this.btn_Edit.TabIndex = 2;
-            this.btn_Edit.Text = "EDIT";
-            this.btn_Edit.UseVisualStyleBackColor = false;
-            this.btn_Edit.Click += new System.EventHandler(this.btn_Edit_Click);
-            // 
-            // btn_Refresh
-            // 
-            this.btn_Refresh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
-            this.btn_Refresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Refresh.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btn_Refresh.ForeColor = System.Drawing.Color.Transparent;
-            this.btn_Refresh.Location = new System.Drawing.Point(616, 208);
-            this.btn_Refresh.Name = "btn_Refresh";
-            this.btn_Refresh.Size = new System.Drawing.Size(146, 37);
-            this.btn_Refresh.TabIndex = 3;
-            this.btn_Refresh.Text = "REFRESH";
-            this.btn_Refresh.UseVisualStyleBackColor = false;
-            this.btn_Refresh.Click += new System.EventHandler(this.btn_Refresh_Click);
-            // 
-            // frm_ManageEmployee
+            // frm_Update
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(250)))), ((int)(((byte)(238)))));
-            this.ClientSize = new System.Drawing.Size(871, 497);
+            this.ClientSize = new System.Drawing.Size(822, 432);
             this.Controls.Add(this.btn_Close);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.tbCtrl);
+            this.Controls.Add(this.panel15);
+            this.Controls.Add(this.panel7);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.MaximizeBox = false;
-            this.Name = "frm_ManageEmployee";
+            this.Name = "frm_Update";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frm_ManageEmployee";
-            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.frm_ManageEmployee_MouseDown);
-            this.tbCtrl.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_Employee)).EndInit();
-            this.tabPage2.ResumeLayout(false);
+            this.Text = "Updating an Employee";
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.frm_Update_MouseDown);
             this.panel15.ResumeLayout(false);
             this.panel15.PerformLayout();
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
-            this.tabPage3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_EditDeleteEmp)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -883,27 +712,16 @@
 
         #endregion
 
-        private TabControl tbCtrl;
-        private TabPage tabPage1;
-        private TabPage tabPage2;
-        private Label label1;
-        private Button btn_Close;
-        private DataGridView dgv_Employee;
         private Panel panel15;
-        private Button btn_Save;
+        private Button btn_Update;
         private Label label8;
-        private ComboBox cmb_BasicRate;
         private Label label7;
         private Panel panel17;
-        private ComboBox cmb_Position;
         private Panel panel16;
-        private TextBox txt_SSS;
-        private TextBox txt_PhoneNo;
         private Panel panel7;
         private Label label6;
         private Label label5;
         private Label label4;
-        private DateTimePicker date_Birth;
         private Panel panel8;
         private Label label3;
         private DateTimePicker dateTimePicker2;
@@ -922,25 +740,27 @@
         private TextBox textBox7;
         private TextBox textBox8;
         private Label label2;
-        private DateTimePicker date_Join;
-        private ComboBox cmb_Status;
-        private ComboBox cmb_Gender;
         private Panel panel6;
         private Panel panel5;
-        private TextBox txt_City;
         private Panel panel4;
-        private TextBox txt_Barangay;
         private Panel panel2;
-        private TextBox txt_Street;
         private Panel panel3;
-        private TextBox txt_LastName;
         private Panel panel1;
-        private TextBox txt_FirstName;
-        private TextBox txt_ID;
-        private TabPage tabPage3;
-        private Button btn_Delete;
-        private DataGridView dgv_EditDeleteEmp;
-        private Button btn_Refresh;
-        private Button btn_Edit;
+        private Label label1;
+        public ComboBox cmb_BasicRate;
+        public ComboBox cmb_Position;
+        public TextBox txt_SSS;
+        public TextBox txt_PhoneNo;
+        public DateTimePicker date_Birth;
+        public DateTimePicker date_Join;
+        public ComboBox cmb_Status;
+        public ComboBox cmb_Gender;
+        public TextBox txt_City;
+        public TextBox txt_Barangay;
+        public TextBox txt_Street;
+        public TextBox txt_LastName;
+        public TextBox txt_FirstName;
+        public TextBox txt_ID;
+        private Button btn_Close;
     }
 }

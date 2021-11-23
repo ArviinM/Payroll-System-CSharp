@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -94,7 +95,7 @@ namespace Payroll
 
         private void btn_Close_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            this.Hide();
         }
 
         private void frm_ManageEmployee_MouseDown(object sender, MouseEventArgs e)
@@ -210,6 +211,58 @@ namespace Payroll
         private void btn_Refresh_Click(object sender, EventArgs e)
         {
             refreshData();
+        }
+
+        private void btn_Edit_Click(object sender, EventArgs e)
+        {
+            Payroll.frm_Update frm = new frm_Update();
+            string selected = this.dgv_EditDeleteEmp.CurrentRow.Cells[0].Value.ToString();
+            string query = "SELECT * FROM tbl_EmployeeInfos WHERE Emp_ID = '" + selected + "'";
+
+            using (SqlConnection con = new SqlConnection(connectionString))
+            using (SqlCommand cmd = new SqlCommand(query, con))
+            {
+                try
+                {
+                    con.Open();
+
+                    using (SqlDataReader read = cmd.ExecuteReader())
+                    {
+                        while (read.Read())
+                        {
+
+                            string address = read["Emp_Address"].ToString();
+                            var street = Regex.Replace(address.Split()[0], @"[^0-9a-zA-Z\ ]+", "");
+                            var barangay = Regex.Replace(address.Split()[1], @"[^0-9a-zA-Z\ ]+", "");
+                            var city = Regex.Replace(address.Split()[2], @"[^0-9a-zA-Z\ ]+", "");
+                            //(Emp_ID, Emp_FirstName, Emp_LastName, Emp_Address, Emp_Gender, Emp_Status, Emp_JoinDate, " +
+                            //"Emp_Dob, Emp_PhoneNo, Emp_SSS, Emp_Position, Emp_Salary)
+                            frm.txt_ID.Text = (read["Emp_ID"].ToString());
+                            frm.txt_FirstName.Text = (read["Emp_FirstName"].ToString());
+                            frm.txt_LastName.Text = (read["Emp_LastName"].ToString());
+                            frm.txt_Street.Text = street;
+                            frm.txt_Barangay.Text = barangay;
+                            frm.txt_City.Text = city;
+                            frm.cmb_Gender.Text = (read["Emp_Gender"].ToString());
+                            frm.cmb_Status.Text = (read["Emp_Status"].ToString());
+                            frm.date_Join.Value = (DateTime)read["Emp_JoinDate"];
+                            frm.date_Birth.Value = (DateTime)read["Emp_Dob"];
+                            frm.txt_PhoneNo.Text = (read["Emp_PhoneNo"].ToString());
+                            frm.txt_SSS.Text = (read["Emp_SSS"].ToString());
+                            frm.cmb_Position.Text = (read["Emp_Position"].ToString());
+                            frm.cmb_BasicRate.Text = (read["Emp_Salary"].ToString());
+
+                        }
+                        read.Close();
+                    }
+                }
+                finally
+                {
+                    con.Close();
+                }
+            }   
+            frm.ShowDialog();
+
         }
     }
 }

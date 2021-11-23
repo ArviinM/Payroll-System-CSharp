@@ -77,14 +77,14 @@ namespace Payroll
             if(progressBar1.Value == progressBar1.Maximum)
             {
                 timer1.Stop();
-                //frm_Dashboard dashboard = new frm_Dashboard();
-                frm_ManageEmployee manageEmployee = new frm_ManageEmployee();
+                frm_Dashboard dashboard = new frm_Dashboard();
                 this.Hide();
-                //dashboard.Show();
-                manageEmployee.Show();
+                dashboard.Show();
+                //frm_ManageEmployee manageEmployee = new frm_ManageEmployee();
+                //manageEmployee.Show();
             }
 
-            
+
         }
 
         private void chb_ShowPassword_CheckedChanged(object sender, EventArgs e)
